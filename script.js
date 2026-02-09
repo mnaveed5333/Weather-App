@@ -2,7 +2,9 @@ const city = document.getElementById("cinput");
 const submit = document.getElementById("output");
 const loc = document.getElementById("loc");
 const temp = document.getElementById("temperature");
-
+const datetime = document.getElementById("datetime");
+const now = new Date();
+datetime.textContent = "Datetime : " + now.toLocaleString();
 async function getWeather() {
     const cityname = city.value.trim();
 
@@ -20,6 +22,7 @@ async function getWeather() {
 
         loc.textContent = "Location : " + data.location.name;
         temp.textContent = "Temperature : " + data.current.temp_c + " °C";
+        datetime.textContent = "Datetime : " + now.toLocaleString();
     } catch (error) {
         console.error("Error fetching weather data:", error);
         loc.textContent = "Error fetching weather data";
